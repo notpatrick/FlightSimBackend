@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
 VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9092AA53-FB77-4645-B42D-1CCCA6BD08BD}") = "Backend", "Backend\Backend.njsproj", "{B4BF4638-A75F-46EB-BBA1-1148AD3FB3B5}"
+Project("{9092AA53-FB77-4645-B42D-1CCCA6BD08BD}") = "FlightSimBackend", "Backend\FlightSimBackend.njsproj", "{B4BF4638-A75F-46EB-BBA1-1148AD3FB3B5}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
