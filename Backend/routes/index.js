@@ -1,9 +1,18 @@
-﻿var express = require('express');
-var router = express.Router();
+﻿var Express = require('express');
+var Router = Express.Router();
+var DB = require('../database/db.js')
 
-/* GET home page. */
-router.get('/', function (req, res) {
-    res.render('index', { title: 'Express' });
+
+Router.get('/', function (req, res) {
+    res.send("TestPage");
 });
 
-module.exports = router;
+Router.get('/:UserID', function (req, res) {
+
+    DB.GameState.findOne({ where: { userID: req.params.UserID}}).then(function (gamestate) {
+        res.send(JSON.stringify(gamestate));
+    });
+
+});
+
+module.exports = Router;
