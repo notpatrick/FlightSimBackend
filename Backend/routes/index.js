@@ -7,9 +7,17 @@ Router.get('/', function (req, res) {
     res.send("TestPage");
 });
 
-Router.get('/:UserID', function (req, res) {
+Router.get('/user/:UserID', function (req, res) {
 
-    DB.GameState.findOne({ where: { userID: req.params.UserID}}).then(function (gamestate) {
+    DB.User.findOne({ where: { id: req.params.UserID}}).then(function (user) {
+        res.send(JSON.stringify(user));
+    });
+
+});
+
+Router.get('/save/:SaveID', function (req, res) {
+
+    DB.GameState.findOne({ where: { id: req.params.SaveID}}).then(function (gamestate) {
         res.send(JSON.stringify(gamestate));
     });
 
