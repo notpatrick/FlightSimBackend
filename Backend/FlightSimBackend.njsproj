@@ -3,7 +3,7 @@
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">11.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
-    <Name>Backend</Name>
+    <Name>FlightSimBackend</Name>
     <RootNamespace>Backend</RootNamespace>
     <LaunchUrl>/1</LaunchUrl>
   </PropertyGroup>
@@ -12,7 +12,8 @@
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>b4bf4638-a75f-46eb-bba1-1148ad3fb3b5</ProjectGuid>
-    <ProjectHome>.</ProjectHome>
+    <ProjectHome>
+    </ProjectHome>
     <StartupFile>bin\www</StartupFile>
     <SearchPath>
     </SearchPath>
