@@ -28,11 +28,29 @@ Router.post('/',
 Router.get('/:UserID',
     function (req, res) {
 
-        Db.User.findOne({ where: { id: req.params.UserID } })
+        Db.User.findById(req.params.UserID)
             .then(function (user) {
                 res.send(JSON.stringify(user));
             });
 
+    });
+//Update user by id
+Router.put('/:UserID',
+    function(req, res) {
+        var newUser = {
+            name: req.body.name,
+            password: req.body.password
+        }
+        Db.User.findById(req.params.UserID)
+            .then(function(user) {
+                user.update(newUser)
+                    .then(function(x) {
+                        res.send(JSON.stringify(x));
+                    })
+                    .catch(function(err) {
+                        res.status(500).send(JSON.stringify(err));
+                    });
+            });
     });
 //Delete a user by id
 Router.delete('/:UserID',
