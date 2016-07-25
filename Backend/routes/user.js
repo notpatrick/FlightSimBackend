@@ -24,7 +24,16 @@ Router.post('/',
                 res.status(500).send(JSON.stringify(err));
             });
     });
+//Get a user by id
+Router.get('/:UserID',
+    function (req, res) {
 
+        Db.User.findOne({ where: { id: req.params.UserID } })
+            .then(function (user) {
+                res.send(JSON.stringify(user));
+            });
+
+    });
 //Delete a user by id
 Router.delete('/:UserID',
     function(req, res) {
@@ -36,16 +45,7 @@ Router.delete('/:UserID',
                     });
             });
     });
-//Get a user by id
-Router.get('/:UserID',
-    function(req, res) {
 
-        Db.User.findOne({ where: { id: req.params.UserID } })
-            .then(function(user) {
-                res.send(JSON.stringify(user));
-            });
-
-    });
 //Get savegames of a user
 Router.get('/:UserID/state',
     function(req, res) {

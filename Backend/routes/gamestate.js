@@ -10,6 +10,26 @@ Router.get('/',
                 res.send(JSON.stringify(gamestates));
             });
     });
+//Post a new gamestate
+Router.post('/',
+    function (req, res) {
+        var newGameState = {
+            userID: req.body.userID,
+            score: req.body.score,
+            isRunning: req.body.isRunning,
+            locationName: req.body.locationName,
+            positionX: req.body.positionX,
+            positionY: req.body.positionY,
+            speedX: req.body.speedX,
+            speedY: req.body.speedY
+        }
+        Db.GameState.create(newGameState)
+            .then(function (gamestate) {
+                res.send(JSON.stringify(gamestate));
+            }).catch(function (err) {
+                res.status(500).send(JSON.stringify(err));
+            });
+    });
 //Get a gamestate by id
 Router.get('/:SaveID',
     function (req, res) {
@@ -31,26 +51,7 @@ Router.delete('/:SaveID',
                     });
             });
     });
-//Post a new gamestate
-Router.post('/:UserID',
-    function (req, res) {
-        var newGameState = {
-            userID: req.params.UserID,
-            score: req.body.score ? req.body.score : -1,
-            isRunning: req.body.isRunning ? req.body.isRunning : -1,
-            locationName: req.body.locationName ? req.body.locationName : "none",
-            positionX: req.body.positionX ? req.body.positionX : -1,
-            positionY: req.body.positionY ? req.body.positionY : -1,
-            speedX: req.body.speedX ? req.body.speedX : -1,
-            speedY: req.body.speedY ? req.body.speedY : -1
-        }
-        Db.GameState.create(newGameState)
-            .then(function (gamestate) {
-                res.send(JSON.stringify(gamestate));
-            }).catch(function(err) {
-                res.status(500).send(JSON.stringify(err));
-            });
-    });
+
 
 
 
