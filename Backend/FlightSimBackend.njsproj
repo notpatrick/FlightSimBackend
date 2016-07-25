@@ -5,7 +5,7 @@
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
     <Name>FlightSimBackend</Name>
     <RootNamespace>Backend</RootNamespace>
-    <LaunchUrl>/save/1</LaunchUrl>
+    <LaunchUrl>/user</LaunchUrl>
   </PropertyGroup>
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
@@ -34,7 +34,8 @@
   <ItemGroup>
     <Compile Include="app.js" />
     <Compile Include="database\db.js" />
-    <Compile Include="routes\index.js" />
+    <Compile Include="routes\gamestate.js" />
+    <Compile Include="routes\user.js" />
     <Compile Include="bin\www" />
     <Content Include="package.json" />
     <Content Include="README.md" />

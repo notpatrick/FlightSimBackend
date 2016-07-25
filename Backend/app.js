@@ -2,16 +2,18 @@
 var Logger = require('morgan');
 var BodyParser = require('body-parser');
 
-var Routes = require('./routes/index');
+var UserRoutes = require('./routes/user');
+var StateRoutes = require('./routes/gamestate');
 
 var App = Express();
 
 // uncomment after placing your favicon in /public
 App.use(Logger('dev'));
 App.use(BodyParser.json());
-App.use(BodyParser.urlencoded({ extended: false }));
+App.use(BodyParser.urlencoded({ extended: true }));
 
-App.use('/', Routes);
+App.use('/user', UserRoutes);
+App.use('/state', StateRoutes);
 
 // catch 404 and forward to error handler
 App.use(function (req, res, next) {
