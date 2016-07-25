@@ -9,7 +9,7 @@ var user = seq.define('User', {
         name: {
             type: Sequelize.STRING,
             allowNull: false,
-            defaultValue: 'debugUser'
+            unique: true
         },
         password: {
             type: Sequelize.STRING,
